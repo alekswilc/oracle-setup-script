@@ -7,6 +7,8 @@ fi
 
 # copy keys
 
+echo "Coping keys"
+
 rm -rf /root/.ssh/authorized_keys
 cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys
 
@@ -15,14 +17,14 @@ echo "Copied keys"
 
 # permit root login
 
-echo "Permitting root login"
+echo "Enabling root login"
 
 line="PermitRootLogin prohibit-password"
 file="/etc/ssh/sshd_config"
 
 echo $line >> $file
 
-echo "Permitted root login"
+echo "Enabled root login"
 echo "Restarting ssh"
 
 systemctl restart ssh
